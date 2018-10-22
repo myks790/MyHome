@@ -2,14 +2,24 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="http://myks790.tplinkdns.com/A.png">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>home</title>
 </head>
 <body>
 
-hello
+build & deploy test 7
 <div id="react"></div>
 
-<script src="/MyHomeApp.js"></script>
-build & deploy test 7
+<script src="/js/MyHomeApp.js"></script>
+ 
+
+<script>
+    document.querySelector('meta[property="og\\:image"]').setAttribute('content', "http://myks790.tpinkdns.com/B.png");
+    console.log(document.querySelector('meta[property="og\\:image"]'))
+</script>
+
+
 </body>
 </html>
