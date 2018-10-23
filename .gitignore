@@ -26,7 +26,8 @@
 /nbdist/
 /.nb-gradle/
 
-src/main/resources/static/*
+src/main/resources/static/js
+src/main/resources/static/css
 
 node_modules/*
 
