@@ -25,7 +25,7 @@ module.exports = {
             },
             {
                 test: /\.(css|scss)$/,
-                exclude: /(node_modules)\/(?!(bootstrap)\/).*/,
+                exclude: /(node_modules)\/(?!(bootstrap|normalize\.css)\/).*/,
                 use: [
                     MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
                 ],
