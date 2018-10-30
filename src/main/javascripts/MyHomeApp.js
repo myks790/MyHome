@@ -6,8 +6,14 @@ import HeaderComponent from "./components/HeaderComponent"
 import SidebarComponent from "./components/SidebarComponent";
 import ViewContainer from "./components/ViewContainer";
 import FooterComponent from "./components/FooterComponent";
+import axios from "axios";
 
 class MyHomeApp extends Component{
+    componentDidMount(props){
+        axios.get("/api/sideMenu/lsit").then((res)=>{
+            console.log(data)
+        })
+    }
     render() {
         return (
             <Fragment>
