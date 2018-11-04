@@ -1,30 +1,36 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
+import axios from "axios";
 
 class SidebarComponent extends Component {
-    render(){
+    state = {
+        data: []
+    };
+
+    componentDidMount(props) {
+        axios.get("/api/sideMenu/list").then((res) => {
+            this.setState({data: res.data})
+        })
+    }
+
+    onClick = (e) => {
+        e.preventDefault();
+        this.props.changeView(e.currentTarget.dataset.id);
+    };
+
+    render() {
         return (
             <nav className={"sideBar"}>
                 <ul>
-                    <li>
-                        <a href="#">
-                            <span></span>
-                            2학년 <span>(current)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span></span>
-                            Orders
-                        </a>
-                    </li>
+                    {this.state.data.map((item) => {
+                        return (
+                            <li key={item.id} data-id={item.id} onClick={this.onClick}>
+                                <a href="">
+                                    {item.title}
+                                </a>
+                            </li>
+                        )
+                    })}
                 </ul>
-
-                <h6>
-                    <span>기타 등등</span>
-                    <a href="#">
-                        <span></span>
-                    </a>
-                </h6>
             </nav>
         )
     }
