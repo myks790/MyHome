@@ -10,7 +10,6 @@ class ViewContainer extends Component {
     };
 
     render() {
-        console.log(this.props.viewData)
         const viewData = this.props.viewData;
         return (
             <main className={"viewContainer"}>
@@ -21,7 +20,6 @@ class ViewContainer extends Component {
             </main>
         )
     }
-
 }
 
 export default ViewContainer;
