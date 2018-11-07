@@ -13,10 +13,10 @@ class ViewContainer extends Component {
         const viewData = this.props.viewData;
         return (
             <main className={"viewContainer"}>
-                {!!viewData && <div>
+                {!!viewData && <>
                     <h1>{viewData.title}</h1>
                     {renderHTML(viewData.content)}
-                </div>}
+                </>}
             </main>
         )
     }

@@ -3,7 +3,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 50px 100% 50px;
+    grid-template-rows: fit-content(100%);
 }
 
 .header {
@@ -63,6 +63,7 @@
     color: #343a40;
     font-size: 9px;
     text-align: center;
+    margin-top: 10px;
     p {
         line-height: 3px;
     }
