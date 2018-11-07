@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c:%M:%L -%X{currentUser}%X{requestParams} %m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <logger name="org.springframework" additivity="false">
+        <level value="WARN"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.hibernate.SQL" additivity="false">
+        <level value="TRACE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="org.springframework.data.jpa" additivity="false">
+        <level value="TRACE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+</configuration>
