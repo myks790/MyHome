@@ -3,3 +3,6 @@ spring:
     url: jdbc:mariadb://${db.host}/temp
     username: ${db.username}
     password: ${db.password}
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
