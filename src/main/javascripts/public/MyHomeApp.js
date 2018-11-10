@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import ReactDOM from "react-dom";
-import "./../../../node_modules/normalize.css/normalize.css"
-import "../styles/base.scss"
+import "../../../../node_modules/normalize.css/normalize.css"
+import "../../styles/public/base.scss"
 import HeaderComponent from "./components/HeaderComponent"
 import SidebarComponent from "./components/SidebarComponent";
 import ViewContainer from "./components/ViewContainer";

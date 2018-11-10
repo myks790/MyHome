@@ -3,12 +3,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    mode : devMode ? 'development' : 'production',
-    entry: "./src/main/javascripts/MyHomeApp.js",
+    mode: devMode ? 'development' : 'production',
+    entry: {
+        'public/MyHomeApp': './src/main/javascripts/public/MyHomeApp.js',
+        'admin/AdminApp': './src/main/javascripts/admin/AdminApp.js',
+    },
 
     output: {
-        path: path.resolve(__dirname, "src/main/resources/static/"),
-        filename: "js/MyHomeApp.js",
+        path: path.resolve(__dirname, 'src/main/resources/static/'),
+        filename: '[name].js',
+        chunkFilename: '[name].js'
     },
 
     module: {
@@ -19,7 +23,7 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"],
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
                         plugins: ['@babel/plugin-proposal-class-properties']
                     }
                 }]
@@ -35,7 +39,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "css/style.css"
+            filename: devMode ? '[name].css' : '[name].[hash].css',
+            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
         })
     ],
 };
