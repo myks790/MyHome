@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="/admin/adminApp.css">
+
+    <th:block th:unless="${_csrf} == null">
+        <meta name="_csrf" th:content="${_csrf.token}">
+        <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    </th:block>
 </head>
 <body>
 
