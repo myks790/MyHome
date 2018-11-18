@@ -44,7 +44,7 @@ dependencies {
 }
 
 node {
-    version = '8.12.0'
+    version = '10.7.0'
     npmVersion = '6.4.1'
     download = true
 }
