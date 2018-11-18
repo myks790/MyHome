@@ -54,9 +54,11 @@ task webpack(type: NodeTask, dependsOn: 'npmInstall') {
     script = project.file('node_modules/.bin/webpack')
 }
 
-
-
 bootRun {
     sourceResources sourceSets.main
     systemProperties System.properties
+}
+
+test {
+    exclude '**/*'
 }
