@@ -1,2 +1,2 @@
 # MyHome
-http://myks790.tplinkdns.com
+http://myks790.iptime.org
