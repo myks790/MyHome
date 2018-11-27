@@ -27,12 +27,16 @@ class AdminApp extends Component {
         });
     };
 
+    onChangeData = (content)=>{
+        this.setState({data:{...this.state.data, content:content}})
+    };
+
     render() {
         return (
             <Fragment>
                 <HeaderComponent toggleSidebar={this.toggleSidebar}/>
                 {this.state.sideBarDisplayFlag && <SidebarComponent changeView={this.changeView}/>}
-                <ViewContainer viewData={this.state.data}/>
+                <ViewContainer viewData={this.state.data} onChangeData={this.onChangeData}/>
                 <FooterComponent/>
             </Fragment>
         );

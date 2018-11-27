@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import renderHTML from 'react-render-html';
+import axios from 'axios';
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css';
 import 'react-summernote/lang/summernote-ko-KR';
@@ -18,6 +18,22 @@ class ViewContainer extends Component {
         }
     };
 
+    getCsrfHeader = () => {
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+        let headers = {
+            'X-Requested-With': 'XMLHttpRequest',
+        };
+        headers[csrfHeader] = csrfToken;
+        return headers;
+    };
+
+    onSave = () =>{
+        axios.post('/api/content',this.props.viewData, {
+            headers: this.getCsrfHeader()
+        })
+    };
+
     render() {
         const viewData = this.props.viewData;
         console.log(viewData)
@@ -26,6 +42,7 @@ class ViewContainer extends Component {
                 {!!viewData && !!viewData.content &&
                 <>
                     <h1>{viewData.title}</h1>
+                    <button onClick={this.onSave}>저장</button>
                     <ReactSummernote
                         className={"summernote"}
                         value={viewData.content}
@@ -42,7 +59,7 @@ class ViewContainer extends Component {
                                 ['view', ['fullscreen', 'codeview']]
                             ]
                         }}
-                        onChange={this.onChange}
+                        onChange={this.props.onChangeData}
                     />
                 </>}
             </main>
