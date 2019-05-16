@@ -6,7 +6,7 @@
     <cache alias="menu">
         <value-type>java.util.List</value-type>
         <expiry>
-            <ttl unit="days">1</ttl>
+            <ttl unit="days">7</ttl>
         </expiry>
         <resources>
             <heap unit="entries">5</heap>

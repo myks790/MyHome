@@ -6,8 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
     mode: devMode ? 'development' : 'production',
     entry: {
-        'public/MyHomeApp': './src/main/javascripts/public/MyHomeApp.js',
-        'admin/AdminApp': './src/main/javascripts/admin/AdminApp.js',
+        'public/MyHomeApp': './src/main/javascripts/public/MyHomeApp.js'
     },
 
     output: {

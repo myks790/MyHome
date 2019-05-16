@@ -9,9 +9,4 @@ public class HomeController {
     public String get(){
         return "home";
     }
-
-    @GetMapping("/admin")
-    public String index(){
-        return "admin";
-    }
 }
